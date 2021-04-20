@@ -10,64 +10,74 @@
     d:DesignWidth="400"
     mc:Ignorable="d">
 
+    <UserControl.Resources>
+        <Style x:Key="TimeButtonStyle" TargetType="FontIcon">
+            <Setter Property="FontFamily" Value="{StaticResource FluentUIGlyphs}" />
+            <Setter Property="Glyph" Value="&#xE9B5;" />
+        </Style>
+    </UserControl.Resources>
+
     <StackPanel Orientation="Horizontal">
-        <Button x:Uid="SleepTimerButton" Style="{StaticResource RoundButtonStyle}">
-            <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xF0CE;" />
+        <Button x:Uid="SleepTimerButton" Style="{StaticResource TransparentRoundButtonStyle}">
+            <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEC1E;" />
             <Button.Flyout>
                 <muxc:CommandBarFlyout Placement="BottomEdgeAlignedLeft">
                     <muxc:CommandBarFlyout.PrimaryCommands>
-                        <AppBarButton
-                            x:Uid="PlayTimerButton"
-                            Command="{x:Bind ViewModel.TimerPlayCommand}"
-                            Icon="Play" />
-                        <AppBarButton
-                            x:Uid="PauseTimerButton"
-                            Command="{x:Bind ViewModel.TimerPauseCommand}"
-                            Icon="Pause" />
-                        <AppBarButton
-                            x:Uid="StopTimerButton"
-                            Command="{x:Bind ViewModel.TimerStopCommand}"
-                            Icon="Stop" />
+                        <AppBarButton x:Uid="PlayTimerButton" Command="{x:Bind ViewModel.TimerPlayCommand}">
+                            <AppBarButton.Icon>
+                                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEB21;" />
+                            </AppBarButton.Icon>
+                        </AppBarButton>
+                        <AppBarButton x:Uid="PauseTimerButton" Command="{x:Bind ViewModel.TimerPauseCommand}">
+                            <AppBarButton.Icon>
+                                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEAF4;" />
+                            </AppBarButton.Icon>
+                        </AppBarButton>
+                        <AppBarButton x:Uid="StopTimerButton" Command="{x:Bind ViewModel.TimerStopCommand}">
+                            <AppBarButton.Icon>
+                                <FontIcon FontFamily="{StaticResource FluentUIGlyphs}" Glyph="&#xEB8A;" />
+                            </AppBarButton.Icon>
+                        </AppBarButton>
                     </muxc:CommandBarFlyout.PrimaryCommands>
                     <muxc:CommandBarFlyout.SecondaryCommands>
-                        <AppBarButton
-                            x:Uid="Minutes5Button"
-                            Command="{x:Bind ViewModel.TimerStartCommand}"
-                            Icon="Clock">
-                            <AppBarButton.CommandParameter>
-                                <x:Int32>5</x:Int32>
-                            </AppBarButton.CommandParameter>
-                        </AppBarButton>
-                        <AppBarButton
-                            x:Uid="Minutes10Button"
-                            Command="{x:Bind ViewModel.TimerStartCommand}"
-                            Icon="Clock">
-                            <AppBarButton.CommandParameter>
-                                <x:Int32>10</x:Int32>
-                            </AppBarButton.CommandParameter>
-                        </AppBarButton>
-                        <AppBarButton
-                            x:Uid="Minutes15Button"
-                            Command="{x:Bind ViewModel.TimerStartCommand}"
-                            Icon="Clock">
-                            <AppBarButton.CommandParameter>
-                                <x:Int32>15</x:Int32>
-                            </AppBarButton.CommandParameter>
-                        </AppBarButton>
-                        <AppBarButton
-                            x:Uid="Minutes30Button"
-                            Command="{x:Bind ViewModel.TimerStartCommand}"
-                            Icon="Clock">
+                        <AppBarButton x:Uid="Minutes30Button" Command="{x:Bind ViewModel.TimerStartCommand}">
+                            <AppBarButton.Icon>
+                                <FontIcon Style="{StaticResource TimeButtonStyle}" />
+                            </AppBarButton.Icon>
                             <AppBarButton.CommandParameter>
                                 <x:Int32>30</x:Int32>
                             </AppBarButton.CommandParameter>
                         </AppBarButton>
-                        <AppBarButton
-                            x:Uid="Minutes60Button"
-                            Command="{x:Bind ViewModel.TimerStartCommand}"
-                            Icon="Clock">
+                        <AppBarButton x:Uid="Minutes60Button" Command="{x:Bind ViewModel.TimerStartCommand}">
+                            <AppBarButton.Icon>
+                                <FontIcon Style="{StaticResource TimeButtonStyle}" />
+                            </AppBarButton.Icon>
                             <AppBarButton.CommandParameter>
                                 <x:Int32>60</x:Int32>
+                            </AppBarButton.CommandParameter>
+                        </AppBarButton>
+                        <AppBarButton x:Uid="Hours2Button" Command="{x:Bind ViewModel.TimerStartCommand}">
+                            <AppBarButton.Icon>
+                                <FontIcon Style="{StaticResource TimeButtonStyle}" />
+                            </AppBarButton.Icon>
+                            <AppBarButton.CommandParameter>
+                                <x:Int32>120</x:Int32>
+                            </AppBarButton.CommandParameter>
+                        </AppBarButton>
+                        <AppBarButton x:Uid="Hours4Button" Command="{x:Bind ViewModel.TimerStartCommand}">
+                            <AppBarButton.Icon>
+                                <FontIcon Style="{StaticResource TimeButtonStyle}" />
+                            </AppBarButton.Icon>
+                            <AppBarButton.CommandParameter>
+                                <x:Int32>240</x:Int32>
+                            </AppBarButton.CommandParameter>
+                        </AppBarButton>
+                        <AppBarButton x:Uid="Hours8Button" Command="{x:Bind ViewModel.TimerStartCommand}">
+                            <AppBarButton.Icon>
+                                <FontIcon Style="{StaticResource TimeButtonStyle}" />
+                            </AppBarButton.Icon>
+                            <AppBarButton.CommandParameter>
+                                <x:Int32>480</x:Int32>
                             </AppBarButton.CommandParameter>
                         </AppBarButton>
                     </muxc:CommandBarFlyout.SecondaryCommands>
@@ -75,7 +85,7 @@
             </Button.Flyout>
         </Button>
         <TextBlock
-            Margin="12,0,0,0"
+            Margin="12,0"
             VerticalAlignment="Center"
             Text="{x:Bind ViewModel.TimeLeft, Mode=OneWay}"
             Visibility="{x:Bind ViewModel.CountdownVisible, Mode=OneWay}" />

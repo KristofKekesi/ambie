@@ -1,26 +1,32 @@
-﻿using AmbientSounds.Services;
+﻿using AmbientSounds.Constants;
+using AmbientSounds.Services;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
 using System;
+using System.Collections.Generic;
 
 namespace AmbientSounds.ViewModels
 {
     public class SleepTimerViewModel : ObservableObject
     {
         private const int DefaultTimerInterval = 1000;
-        private readonly IMediaPlayerService _player;
+        private readonly IMixMediaPlayerService _player;
+        private readonly ITelemetry _telemetry;
         private readonly ITimerService _timer;
 
         public SleepTimerViewModel(
-            IMediaPlayerService player,
-            ITimerService timer)
+            IMixMediaPlayerService player,
+            ITimerService timer,
+            ITelemetry telemetry)
         {
             Guard.IsNotNull(player, nameof(player));
             Guard.IsNotNull(timer, nameof(timer));
+            Guard.IsNotNull(telemetry, nameof(telemetry));
 
             _player = player;
             _timer = timer;
+            _telemetry = telemetry;
             _timer.Interval = DefaultTimerInterval;
             _timer.IntervalElapsed += TimerElapsed;
 
@@ -79,6 +85,11 @@ namespace AmbientSounds.ViewModels
 
         private void StartTimer(int minutes)
         {
+            _telemetry.TrackEvent(TelemetryConstants.TimeSelected, new Dictionary<string, string>
+            {
+                { "length", minutes.ToString() }
+            });
+
             _timer.Remaining = new TimeSpan(0, minutes, 0);
             OnPropertyChanged(nameof(TimeLeft));
             CountdownVisible = true;

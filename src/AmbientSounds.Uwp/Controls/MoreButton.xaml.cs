@@ -1,10 +1,16 @@
-﻿using System;
+﻿using AmbientSounds.Constants;
+using AmbientSounds.Services;
+using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.DataTransfer;
 using Windows.Services.Store;
 using Windows.System;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media.Animation;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
@@ -35,6 +41,21 @@ namespace AmbientSounds.Controls
         private void ShareClicked()
         {
             DataTransferManager.ShowShareUI();
+        }
+
+        private void ScreensaverClicked()
+        {
+            var telemetry = App.Services.GetRequiredService<ITelemetry>();
+            telemetry.TrackEvent(TelemetryConstants.ScreensaverTriggered, new Dictionary<string, string>()
+            {
+                { "trigger", "moreButton" }
+            });
+            App.AppFrame.Navigate(typeof(Views.ScreensaverPage), null, new DrillInNavigationTransitionInfo());
+            var view = ApplicationView.GetForCurrentView();
+            if (!view.IsFullScreenMode && !App.IsTenFoot)
+            {
+                view.TryEnterFullScreenMode();
+            }
         }
 
         private async void RateUsClicked(object sender, RoutedEventArgs e)
@@ -73,6 +94,12 @@ namespace AmbientSounds.Controls
                 await Launcher.LaunchUriAsync(new Uri(url));
             }
             catch { }
+        }
+
+        private async void SettingsClicked()
+        {
+            var dialogService = App.Services.GetRequiredService<IDialogService>();
+            await dialogService.OpenSettingsAsync();
         }
     }
 }

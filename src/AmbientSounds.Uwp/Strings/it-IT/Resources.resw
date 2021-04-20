@@ -1,110 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
-    Microsoft ResX Schema 
-    
-    Version 2.0
-    
-    The primary goals of this format is to allow a simple XML format 
-    that is mostly human readable. The generation and parsing of the 
-    various data types are done through the TypeConverter classes 
-    associated with the data types.
-    
-    Example:
-    
-    ... ado.net/XML headers & schema ...
-    <resheader name="resmimetype">text/microsoft-resx</resheader>
-    <resheader name="version">2.0</resheader>
-    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
-    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
-    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
-    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
-    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
-        <value>[base64 mime encoded serialized .NET Framework object]</value>
-    </data>
-    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
-        <comment>This is a comment</comment>
-    </data>
-                
-    There are any number of "resheader" rows that contain simple 
-    name/value pairs.
-    
-    Each data row contains a name, and value. The row also contains a 
-    type or mimetype. Type corresponds to a .NET class that support 
-    text/value conversion through the TypeConverter architecture. 
-    Classes that don't support this are serialized and stored with the 
-    mimetype set.
-    
-    The mimetype is used for serialized objects, and tells the 
-    ResXResourceReader how to depersist the object. This is currently not 
-    extensible. For a given mimetype the value must be set accordingly:
-    
-    Note - application/x-microsoft.net.object.binary.base64 is the format 
-    that the ResXResourceWriter will generate, however the reader can 
-    read any of the formats listed below.
-    
-    mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with 
-            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
-            : and then encoded with base64 encoding.
-    
-    mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with 
-            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
-            : and then encoded with base64 encoding.
-
-    mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array 
-            : using a System.ComponentModel.TypeConverter
-            : and then encoded with base64 encoding.
-    -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
   <resheader name="resmimetype">
     <value>text/microsoft-resx</value>
   </resheader>
@@ -117,6 +12,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="CloseCompactMode.AutomationProperties.Name" xml:space="preserve">
+    <value>Non usare modalità compatta</value>
+  </data>
+  <data name="CloseCompactMode.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Non usare modalità compatta</value>
+  </data>
+  <data name="CloseText" xml:space="preserve">
+    <value>Save</value>
+  </data>
   <data name="Copyright.Text" xml:space="preserve">
     <value>Copyright</value>
   </data>
@@ -125,6 +29,9 @@
   </data>
   <data name="HelloFromVancouver.Text" xml:space="preserve">
     <value>Saluti da Vancouver</value>
+  </data>
+  <data name="LogoButton.AutomationProperties.Name" xml:space="preserve">
+    <value></value>
   </data>
   <data name="Minutes10Button.Label" xml:space="preserve">
     <value>10 minuti</value>
@@ -141,6 +48,9 @@
   <data name="Minutes60Button.Label" xml:space="preserve">
     <value>60 minuti</value>
   </data>
+  <data name="MoreButton.AutomationProperties.Name" xml:space="preserve">
+    <value></value>
+  </data>
   <data name="MoreButtonContact.Label" xml:space="preserve">
     <value>Contatta il creatore</value>
   </data>
@@ -148,16 +58,25 @@
     <value>Chatta su Discord</value>
   </data>
   <data name="MoreButtonGitHub.Label" xml:space="preserve">
-    <value>Aprire GitHub</value>
+    <value>Apri GitHub</value>
   </data>
   <data name="MoreButtonRate.Label" xml:space="preserve">
-    <value>Tariffa e revisione</value>
+    <value>Valuta</value>
+  </data>
+  <data name="MoreButtonSettings.Label" xml:space="preserve">
+    <value>Impostazioni</value>
   </data>
   <data name="MoreButtonShare.Label" xml:space="preserve">
     <value>Condividi URL per Ambie</value>
   </data>
   <data name="MoreButtonTranslate.Label" xml:space="preserve">
-    <value>Migliorare le traduzioni</value>
+    <value>Migliora le traduzioni</value>
+  </data>
+  <data name="OffTextBlock.Text" xml:space="preserve">
+    <value>Disabili</value>
+  </data>
+  <data name="OnTextBlock.Text" xml:space="preserve">
+    <value>Abilitato</value>
   </data>
   <data name="PauseTimerButton.AutomationProperties.Name" xml:space="preserve">
     <value>Sospendere il timer</value>
@@ -174,46 +93,179 @@
   <data name="ReadyToPlayText" xml:space="preserve">
     <value>Selezionare un suono</value>
   </data>
+  <data name="SettingsTelemetrySwitch.Header" xml:space="preserve">
+    <value>Telemetria</value>
+  </data>
+  <data name="SettingsText" xml:space="preserve">
+    <value>Impostazioni</value>
+  </data>
   <data name="SleepTimerButton.AutomationProperties.Name" xml:space="preserve">
     <value>Fare clic qui per impostare un timer di sospensione, in cui il suono verrà messo in pausa dopo l'ora selezionata.</value>
   </data>
   <data name="SleepTimerButton.ToolTipService.ToolTip" xml:space="preserve">
     <value>Fare clic qui per impostare un timer di sospensione, in cui il suono verrà messo in pausa dopo l'ora selezionata.</value>
   </data>
-  <data name="Sound-beach" xml:space="preserve">
+  <data name="Soundbeach" xml:space="preserve">
     <value>Spiaggia</value>
   </data>
-  <data name="Sound-birds" xml:space="preserve">
+  <data name="Soundbirds" xml:space="preserve">
     <value>Uccelli</value>
   </data>
-  <data name="Sound-citystreet" xml:space="preserve">
+  <data name="Soundcitystreet" xml:space="preserve">
     <value>Strada</value>
   </data>
-  <data name="Sound-coffeeshop" xml:space="preserve">
+  <data name="Soundcoffeeshop" xml:space="preserve">
     <value>Caffè</value>
   </data>
-  <data name="Sound-fireplace" xml:space="preserve">
+  <data name="Soundcreek" xml:space="preserve">
+    <value>Torrente</value>
+  </data>
+  <data name="Soundfireplace" xml:space="preserve">
     <value>Camino</value>
   </data>
-  <data name="Sound-more" xml:space="preserve">
+  <data name="Soundmore" xml:space="preserve">
     <value>Altri in arrivo</value>
   </data>
-  <data name="Sound-rain" xml:space="preserve">
+  <data name="Soundrain" xml:space="preserve">
     <value>Pioggia</value>
   </data>
-  <data name="Sound-rainforest" xml:space="preserve">
+  <data name="Soundrainforest" xml:space="preserve">
     <value>Foresta pluviale</value>
   </data>
-  <data name="Sound-underwater" xml:space="preserve">
+  <data name="Soundunderwater" xml:space="preserve">
     <value>Subacquea</value>
   </data>
-  <data name="Sound-whitenoise" xml:space="preserve">
+  <data name="Soundwaterfall" xml:space="preserve">
+    <value>Cascata</value>
+  </data>
+  <data name="Soundwhitenoise" xml:space="preserve">
     <value>Rumore bianco</value>
+  </data>
+  <data name="SoundsLoadingRing.AutomationProperties.Name" xml:space="preserve">
+    <value></value>
   </data>
   <data name="SoundUnplayable" xml:space="preserve">
     <value>Impossibile riprodurre l'audio</value>
   </data>
   <data name="StopTimerButton.AutomationProperties.Name" xml:space="preserve">
-    <value>Arrestare il timer e cancellare l'ora</value>
+    <value>Ferma il timer e reimposta l'ora</value>
+  </data>
+  <data name="VolumeSlider.AutomationProperties.Name" xml:space="preserve">
+    <value></value>
+  </data>
+  <data name="SuggestionHeader.Text" xml:space="preserve">
+    <value>Inviaci suggerimenti sonori!</value>
+  </data>
+  <data name="SuggestionTextBox.PlaceholderText" xml:space="preserve">
+    <value>Suggerimento</value>
+  </data>
+  <data name="SuggestionTextBox.AutomationProperties.Name" xml:space="preserve">
+    <value>Inviaci suggerimenti sonori!</value>
+  </data>
+  <data name="SuggestionSendButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Invia</value>
+  </data>
+  <data name="SuggestionSendButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Fare click per inviare il suggerimento</value>
+  </data>
+  <data name="ThankYouTextBlock.Text" xml:space="preserve">
+    <value>Grazie</value>
+  </data>
+  <data name="SettingsThemeHeader.Text" xml:space="preserve">
+    <value>Tema (richiede il riavvio)</value>
+  </data>
+  <data name="SettingsThemeDefaultRadio.Content" xml:space="preserve">
+    <value>Automatico</value>
+  </data>
+  <data name="SettingsThemeDarkRadio.Content" xml:space="preserve">
+    <value>Scuro</value>
+  </data>
+  <data name="SettingsThemeLightRadio.Content" xml:space="preserve">
+    <value>Chiaro</value>
+  </data>
+  <data name="Soundvacuum" xml:space="preserve">
+    <value>Aspirapolvere</value>
+  </data>
+  <data name="Soundthunder" xml:space="preserve">
+    <value>Tuono</value>
+  </data>
+  <data name="SettingsNotificationsSwitch.Header" xml:space="preserve">
+    <value>Messaggio di notifica</value>
+  </data>
+  <data name="Soundwind" xml:space="preserve">
+    <value>Vento</value>
+  </data>
+  <data name="ViewCatalogue.Text" xml:space="preserve">
+    <value>Altri suoni</value>
+  </data>
+  <data name="ViewCatalogueButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Visualizza più suoni</value>
+  </data>
+  <data name="BackButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Torna indietro</value>
+    <comment>Going back to the previous page</comment>
+  </data>
+  <data name="DownloadSoundButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Scarica il suono</value>
+  </data>
+  <data name="DownloadSoundButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Scarica il suono</value>
+  </data>
+  <data name="AlreadyDownloaded" xml:space="preserve">
+    <value>Già scaricato</value>
+    <comment>The sound is already downloaded</comment>
+  </data>
+  <data name="CanDownload" xml:space="preserve">
+    <value>Può essere scaricato</value>
+    <comment>The sound can be downloaded</comment>
+  </data>
+  <data name="OnlineSoundsList.AutomationProperties.Name" xml:space="preserve">
+    <value>Catalogo del suono</value>
+  </data>
+  <data name="SoundsGridView.AutomationProperties.Name" xml:space="preserve">
+    <value>Suoni</value>
+    <comment>List of sounds</comment>
+  </data>
+  <data name="PrivacyPolicyButton.Content" xml:space="preserve">
+    <value>Politica sulla riservatezza</value>
+  </data>
+  <data name="SoundCatalogue.Text" xml:space="preserve">
+    <value>Catalogo del suono - beta</value>
+  </data>
+  <data name="ViewCatalogueIcon.AutomationProperties.Name" xml:space="preserve">
+    <value>Visualizza più suoni</value>
+  </data>
+  <data name="ViewCatalogueIcon.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Visualizza più suoni</value>
+  </data>
+  <data name="PrivacyPolicyButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Politica sulla riservatezza</value>
+  </data>
+  <data name="DeleteButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Elimina suono</value>
+  </data>
+  <data name="DeleteTextBlock.Text" xml:space="preserve">
+    <value>Elimina</value>
+  </data>
+  <data name="DownloadTextBlock.Text" xml:space="preserve">
+    <value>Scarica</value>
+  </data>
+  <data name="DeleteAppBarButton.Label" xml:space="preserve">
+    <value>Elimina</value>
+  </data>
+  <data name="RandomButton.AutomationProperties.Name" xml:space="preserve">
+    <value>Riproduci un suono casuale</value>
+  </data>
+  <data name="RandomButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Riproduci un suono casuale</value>
+  </data>
+  <data name="MoreButtonScreensaver.Label" xml:space="preserve">
+    <value>Modalità salvaschermo</value>
+  </data>
+  <data name="SettingsScreensaverSwitch.Header" xml:space="preserve">
+    <value>Salvaschermo</value>
+  </data>
+  <data name="SettingsScreensaverDark.Content" xml:space="preserve">
+    <value>Usa una pagina scura come salvaschermo</value>
   </data>
 </root>

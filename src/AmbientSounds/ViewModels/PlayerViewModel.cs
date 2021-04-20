@@ -3,7 +3,6 @@ using AmbientSounds.Services;
 using Microsoft.Toolkit.Diagnostics;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
-using System;
 using System.Threading.Tasks;
 
 namespace AmbientSounds.ViewModels
@@ -13,20 +12,20 @@ namespace AmbientSounds.ViewModels
     /// </summary>
     public class PlayerViewModel : ObservableObject
     {
-        private readonly IMediaPlayerService _player;
+        private readonly IMixMediaPlayerService _player;
         private readonly IUserSettings _userSettings;
 
-        public PlayerViewModel(IMediaPlayerService player, IUserSettings userSettings)
+        public PlayerViewModel(IMixMediaPlayerService player, IUserSettings userSettings)
         {
             Guard.IsNotNull(player, nameof(player));
             Guard.IsNotNull(userSettings, nameof(userSettings));
 
             _player = player;
             _userSettings = userSettings;
-            _player.NewSoundPlayed += NewSoundPlayed;
             _player.PlaybackStateChanged += PlaybackStateChanged;
 
             TogglePlayStateCommand = new AsyncRelayCommand(TogglePlayStateAsync);
+            RandomCommand = new RelayCommand(PlayRandom);
             Volume = userSettings.Get<double>(UserSettingsConstants.Volume);
         }
 
@@ -34,6 +33,11 @@ namespace AmbientSounds.ViewModels
         /// The <see cref="IAsyncRelayCommand"/> responsible for toggling the play state.
         /// </summary>
         public IAsyncRelayCommand TogglePlayStateCommand { get; }
+
+        /// <summary>
+        /// Command for playing a random sound.
+        /// </summary>
+        public IRelayCommand RandomCommand { get; }
 
         /// <summary>
         /// Flag for if the player is playing or is about to.
@@ -46,19 +50,14 @@ namespace AmbientSounds.ViewModels
         public bool IsPaused => !IsPlaying;
 
         /// <summary>
-        /// Name of current sound track.
-        /// </summary>
-        public string? SoundName => _player?.Current?.Name ?? _player?.Current?.Id;
-
-        /// <summary>
         /// Volume of player. Range of 0 to 100.
         /// </summary>
         public double Volume
         {
-            get => _player.Volume;
+            get => _player.GlobalVolume * 100;
             set
             {
-                _player.Volume = value;
+                _player.GlobalVolume = value / 100d;
                 _userSettings.Set(UserSettingsConstants.Volume, value);
             }
         }
@@ -76,15 +75,15 @@ namespace AmbientSounds.ViewModels
             UpdatePlayState();
         }
 
+        private void PlayRandom()
+        {
+            //_player.PlayRandom();
+        }
+
         private void UpdatePlayState()
         {
             OnPropertyChanged(nameof(IsPlaying));
             OnPropertyChanged(nameof(IsPaused));
-        }
-
-        private void NewSoundPlayed(object sender, EventArgs e)
-        {
-            OnPropertyChanged(nameof(SoundName));
         }
 
         private void PlaybackStateChanged(object sender, MediaPlaybackState state)

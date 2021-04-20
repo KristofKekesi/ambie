@@ -1,4 +1,5 @@
-﻿using Windows.ApplicationModel.Resources;
+﻿using AmbientSounds.Models;
+using Windows.ApplicationModel.Resources;
 
 namespace AmbientSounds.Converters
 {
@@ -7,24 +8,33 @@ namespace AmbientSounds.Converters
     /// </summary>
     public static class LocalizationConverter
     {
+        private static ResourceLoader _loader;
+
+        public static string ConvertPublishState(PublishState publishState)
+        {
+            InitializeLoader();
+            return _loader.GetString("PublishState" + publishState.ToString());
+        }
+
         /// <summary>
-        /// Attempts to localizes a sound's name.
+        /// Attempts to localize a sound's name.
         /// </summary>
         /// <param name="value">The <see cref="Models.Sound.Name"/> property.</param>
         /// <returns>A localized string of the sound if a localization exists.</returns>
         public static string ConvertSoundName(string value)
         {
-            var resourceLoader = ResourceLoader.GetForCurrentView();
+            InitializeLoader();
+
             if (value is string soundName)
             {
-                var translatedName = resourceLoader.GetString("Sound-" + soundName);
+                var translatedName = _loader.GetString("Sound" + soundName);
                 return string.IsNullOrWhiteSpace(translatedName)
                     ? soundName
                     : translatedName;
             }
             else
             {
-                return resourceLoader.GetString("ReadyToPlayText");
+                return value;
             }
         }
 
@@ -35,33 +45,46 @@ namespace AmbientSounds.Converters
         /// <param name="isPaused">Current state of the player.</param>
         public static string ConvertPlayerButtonState(bool isPaused)
         {
-            var resourceLoader = ResourceLoader.GetForCurrentView();
-            return isPaused ? resourceLoader.GetString("PlayerPlayText") : resourceLoader.GetString("PlayerPauseText");
+            InitializeLoader();
+            return isPaused ? _loader.GetString("PlayerPlayText") : _loader.GetString("PlayerPauseText");
         }
 
-        /// <summary>
-        /// Returns localized phrase for the sound object
-        /// in a list or grid view. Includes information
-        /// on what happens when the item is invoked.
-        /// </summary>
-        /// <remarks>
-        /// Generally used for AutomationProperties.Name.
-        /// </remarks>
-        public static string ConvertGridViewSoundName(bool isCurrentlyPlaying, bool unplayable, string name)
+        public static string SoundStatus(bool isCurrentlyPlaying)
         {
-            var resourceLoader = ResourceLoader.GetForCurrentView();
-            var baseName = ConvertSoundName(name) + ", ";
-
-            if (unplayable)
+            InitializeLoader();
+            if (isCurrentlyPlaying)
             {
-                return baseName + resourceLoader.GetString("SoundUnplayable");
+                return _loader.GetString("Playing");
             }
             else
             {
-                return isCurrentlyPlaying
-                    ? baseName + resourceLoader.GetString("PlayerPauseText")
-                    : baseName + resourceLoader.GetString("PlayerPlayText");
+                return _loader.GetString("Paused");
             }
+        }
+
+        /// <summary>
+        /// Returns localized phrase for online sound object
+        /// in a list view.
+        /// </summary>
+        /// <param name="name">Name of the sound.</param>
+        /// <param name="canDownload">Whether or not the sound can be downloaded or is already downloaded.</param>
+        /// <remarks>
+        /// Generally used for AutomationProperties.Name.
+        /// </remarks>
+        public static string ConvertOnlineSoundListViewName(string name, bool canDownload)
+        {
+            if (_loader == null) _loader = ResourceLoader.GetForCurrentView();
+            var result = name + ". ";
+            result += canDownload 
+                ? _loader.GetString("CanDownload") 
+                : _loader.GetString("AlreadyDownloaded");
+
+            return result;
+        }
+
+        private static void InitializeLoader()
+        {
+            if (_loader == null) _loader = ResourceLoader.GetForCurrentView();
         }
     }
 }
